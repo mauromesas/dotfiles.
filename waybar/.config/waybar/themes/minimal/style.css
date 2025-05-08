@@ -1,0 +1,86 @@
+/* ┌──────────────────────────────┐
+   │    Minimalist Waybar Style   │
+   └──────────────────────────────┘ 
+*/
+
+@import "colors.css";
+
+* {
+  font-family: JetBrainsMono Nerd Font;
+  font-weight: bolder;
+  font-size: 12px;
+  min-height: 10px;
+}
+
+window#waybar {
+  background: @bg;
+  border: 2px solid @border;
+}
+
+#workspaces {
+  color: @text;
+  background: transparent;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+#workspaces button {
+  padding-left: 2pt;
+  padding-right: 2pt;
+  color: #404040;
+}
+
+#workspaces button.visible {
+  color: @text;
+}
+
+#workspaces button.urgent {
+  color: @black;
+  background: @warning;
+}
+
+#workspaces button:hover {
+  color: @white;
+  border-radius: 0px;
+  background: transparent;
+}
+
+#custom-spotify {
+  color: @text;
+  background: transparent;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+#tray {
+  color: @text;
+  background: transparent;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+#pulseaudio {
+  color: @text;
+  background: transparent;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+#pulseaudio.microphone.source-muted {
+  color: #bf616a;
+}
+
+#network {
+  color: @text;
+  background: transparent;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+#clock {
+  color: @text;
+  background: transparent;
+  padding-left: 6px;
+  padding-right: 6px;
+  margin-right: 6px;
+}

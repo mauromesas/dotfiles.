@@ -1,0 +1,117 @@
+@import "colors.css"; 
+
+* {
+    font-family: JetBrainsMono Nerd Font;
+    font-size: 12px;
+    min-height: 10px;
+    font-weight: bolder;
+}
+
+window#waybar {
+    background: @bg;
+    color: @overlay0;
+    transition-property: background-color;
+    transition-duration: 0.1s;
+}
+
+#window {
+    margin: 0;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+button {
+    border: 2px solid #606060;
+    border-radius: 0;
+}
+
+button:hover {
+    color: @mauve;
+    border: 2px solid @mauve;
+    box-shadow: none;
+    text-shadow: none;
+    transition: none;
+}
+
+#workspaces button {
+    padding: 0 4px;
+    transition: none;
+}
+
+#workspaces button.active {
+    background-color: #161616;
+    color: @text;
+    border: 2px solid @purple;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+#pulseaudio,
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#wireplumber,
+#tray,
+#network,
+#mode,
+#scratchpad {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#clock {
+    color: @text;
+    border: 2px solid @pink;
+}
+
+#clock.date {
+    color: @mauve;
+    border: 2px solid @mauve;
+}
+
+#pulseaudio {
+    color: @text;
+    border: 2px solid @blue;
+}
+
+#network {
+    color: @text;
+    border: 2px solid @cyan;
+}
+
+#idle_inhibitor {
+    margin-right: 12px;
+    color: #7cb342;
+}
+
+#idle_inhibitor.activated {
+    color: @red;
+}
+
+#battery {
+    color: @text;
+    border: 2px solid @green;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left>widget:first-child>#workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right>widget:last-child>#workspaces {
+    margin-right: 0;
+}
+
+#custom-vpn {
+    color: @lavender;
+    border-radius: 15px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
