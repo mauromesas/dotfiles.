@@ -1,0 +1,61 @@
+{
+  "position": "top",
+  "height": 22,
+  "spacing": 1,
+  "reload_style_on_change": true,
+  "modules-left": ["hyprland/workspaces"],
+  "modules-right": ["network", "pulseaudio", "battery", "clock"],
+  "hyprland/workspaces": {
+  "format": "{name}: {icon}",
+  "format-icons": {
+    "1": "Zen", // Ícono de Firefox (Nerd Font)
+    "2": "Terminal", // Ícono de terminal
+    "3": "File Manager", // Ícono de gestor de archivos
+    "4": "Spotify", // Ícono de Spotify
+    "5": "Coñitos" // Ícono de chat
+  },
+  "all-outputs": true,
+  "on-click": "activate"
+  },
+  "clock": {
+    "timezone": "America/Argentina/Buenos_Aires",
+    "format": "<span foreground='#ee5396'>Time:</span> {:%H:%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "<span size='13000' foreground='#a6e3a1'>Battery:{icon} </span> {capacity}%",
+    "format-warning": "<span size='10000' foreground='#B1E3AD'>{icon} </span> {capacity}%",
+    "format-critical": "<span size='10000' foreground='#E38C8F'>{icon} </span> {capacity}%",
+    "format-charging": "<span size='10000' foreground='#B1E3AD'> </span>{capacity}%",
+    "format-plugged": "<span size='10000' foreground='#B1E3AD'> </span>{capacity}%",
+    "format-alt": "<span size='10000' foreground='#B1E3AD'>{icon} </span> {time}",
+    "format-full": "<span size='10000' foreground='#42be65'>Battery:</span> {capacity}%",
+    "format-icons": ["", "", "", "", ""],
+    "tooltip-format": "{time}"
+  },
+  "network": {
+    "format-wifi": "<span size='10000' foreground='#08bdba'>Wifi:</span> {essid}",
+    "format-ethernet": "<span size='10000' foreground='#f5e0dc'>󰤭  </span> Disconnected",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "<span size='10000' foreground='#f5e0dc'>  </span>Disconnected",
+    "tooltip-format-wifi": "Signal Strenght: {signalStrength}%"
+  },
+  "pulseaudio": {
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "format": "<span size='10000' foreground='#78a9ff'>Volume:</span> {volume}%",
+    "format-muted": "<span size='10000' foreground='#78a9ff'></span> Muted",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", ""]
+    }
+  }
+}

@@ -1,0 +1,113 @@
+// ┌──────────────────────────────────────┐
+// │    Minimalist Waybar Configuration   │
+// └──────────────────────────────────────┘
+
+// [General Settings]
+
+{
+  "position": "top",
+  "layer": "top",
+  "height": 28,
+  "margin-left": 6,
+  "margin-right": 6,
+  "margin-top": 6,
+  "reload_style_on_change": true,
+  "spacing": 6,
+  "modules-left": ["hyprland/workspaces", "custom/spotify"],
+  "modules-right": [
+    "tray",
+    "pulseaudio",
+    "pulseaudio#microphone",
+    "network",
+    "clock"
+  ],
+
+  // [Modules]
+
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "tooltip-format": "{title}",
+    "on-click": "minimize",
+    "on-click-right": "close"
+  },
+
+  "hyprland/workspaces": {
+    "disable-scroll-wraparound": true,
+    "smooth-scrolling-threshold": 4,
+    "enable-bar-scroll": true,
+    "format": "{icon}",
+    "format-icons": {
+      "active": "󰝤",
+      "default": "󰝤"
+    }
+  },
+
+  "custom/spotify": {
+    "exec": "/usr/bin/python3 ~/.config/waybar/scripts/mediaplayer.py --player spotifyd",
+    "format": "{}   ",
+    "return-type": "json",
+    "on-click": "alacritty -e spt",
+    "on-click-right": "playerctl play-pause",
+    "on-scroll-up": "playerctl next",
+    "on-scroll-down": "playerctl previous"
+  },
+
+  "hyprland/window": {
+    "format": "{title}",
+    "max-length": 40,
+    "separate-outputs": false
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 3
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "{icon} {volume}%",
+    "format-muted": "󰖁",
+    "format-icons": {
+      "headphone": "󰋋",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", ""]
+    },
+    "scroll-step": 1,
+    "on-click": "pavucontrol",
+    "tooltip": false
+  },
+
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": "  Muted",
+    "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+    "on-click-right": "pavucontrol",
+    "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
+    "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -5%",
+    "scroll-step": 5
+  },
+
+  "network": {
+    "tooltip": true,
+    "format-wifi": "  {essid}",
+    "rotate": 0,
+    "format-ethernet": "󰈀 ",
+    "tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>",
+    "format-linked": "󰈀 {ifname} (No IP)",
+    "format-disconnected": "󰖪 ",
+    "tooltip-format-disconnected": "Disconnected",
+    "interval": 2
+  },
+
+  "clock": {
+    "timezone": "America/Argentina/Buenos_Aires",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "  {:%Y-%m-%d}",
+    "format": "  {:%H:%M}"
+  }
+}
