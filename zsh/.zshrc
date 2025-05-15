@@ -2,11 +2,6 @@
 # │   Zsh Configuration   │
 # └───────────────────────┘
 
-# Enable Powerlevel10k instant prompt.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
@@ -18,9 +13,6 @@ fi
 
 # Source/Load zinit
 source "${ZINIT_HOME}/zinit.zsh"
-
-# Add in Powerlevel10k
-zinit ice depth=1; zinit light romkatv/powerlevel10k
 
 # Add in zsh plugins
 zinit light zsh-users/zsh-completions
@@ -42,8 +34,24 @@ autoload -Uz compinit && compinit
 
 zinit cdreplay -q
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+zstyle ':completion:*' menu select
+zstyle ':completion:*:descriptions' format '[%d]'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' matcher-list \
+		'm:{a-zA-Z}={A-Za-z}' \
+		'+r:|[._-]=* r:|=*' \
+		'+l:|=*'
+zstyle ':vcs_info:*' formats ' %B%s-[%F{magenta}%f %F{yellow}%b%f]-'
+zstyle ':fzf-tab:*' fzf-flags --style=full --height=90% --pointer '>' \
+                --color 'pointer:green:bold,bg+:-1:,fg+:green:bold,info:blue:bold,marker:yellow:bold,hl:gray:bold,hl+:yellow:bold' \
+                --input-label ' Search ' --color 'input-border:blue,input-label:blue:bold' \
+                --list-label ' Results ' --color 'list-border:green,list-label:green:bold' \
+                --preview-label ' Preview ' --color 'preview-border:magenta,preview-label:magenta:bold'
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --icons=always --color=always -a $realpath'
+zstyle ':fzf-tab:complete:eza:*' fzf-preview 'eza -1 --icons=always --color=always -a $realpath'
+zstyle ':fzf-tab:complete:bat:*' fzf-preview 'bat --color=always --theme=base16 $realpath'
+zstyle ':fzf-tab:*' fzf-bindings 'space:accept'
+zstyle ':fzf-tab:*' accept-line enter
 
 # Keybindings
 bindkey -e
@@ -77,7 +85,9 @@ alias ls='eza --icons=always --color=always -a'
 alias ll='eza --icons=always --color=always -la'
 alias vim='nvim'
 alias c='clear'
-alias dotedit='nvim $(find ~/dotfiles -type f | fzf)'
+alias dotedit='nvim $(find ~/dotfiles. -type f | fzf)'
+alias runscript='"$(find ~/.config/hypr/scripts -type f -executable | fzf)"'
+
 
 # Shell integrations
 eval "$(fzf --zsh)"
@@ -93,3 +103,5 @@ export PATH=$HOME/.local/bin:$PATH
 # Bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+eval "$(starship init zsh)"

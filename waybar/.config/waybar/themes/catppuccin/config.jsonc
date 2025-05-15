@@ -17,7 +17,7 @@
         "pulseaudio",
         "custom/vpn",
         "network",
-        "bluetooth",
+  "bluetooth",
         "power-profiles-daemon",
         "backlight",
         "battery"
