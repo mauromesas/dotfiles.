@@ -1,15 +1,15 @@
-@import "gruvbox.css"; 
+@import "colors.css"; 
 
 * {
     font-family: JetBrainsMono Nerd Font;
     font-size: 12px;
     min-height: 10px;
-    font-weight: bold;
+    font-weight: bolder;
 }
 
 window#waybar {
     background: @bg;
-    border: 2px solid @surface;
+    border: 2px solid @border;
 }
 
 #window {
@@ -25,11 +25,12 @@ button {
 #workspaces button {
     padding: 0 4px;
     transition: none;
-    color: @surface;
+    color: #606060;
 }
 
 #workspaces button.active {
     color: @text;
+    background-color: @border;
 }
 
 #workspaces button.urgent {

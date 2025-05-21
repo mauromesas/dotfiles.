@@ -21,7 +21,7 @@
 
   // Workspaces
   "hyprland/workspaces": {
-    "format": "{icon}",
+    "format": "<span size='10000'>{icon}</span>",
     "all-outputs": true,
     "on-click": "activate"
   },
@@ -34,7 +34,7 @@
   // Clock
   "clock": {
     "timezone": "America/Argentina/Buenos_Aires",
-    "format": "<span size='10000' background='#cc241d' foreground='#ebdbb2'> Time </span> {:%H:%M}",
+    "format": "<span size='10000' background='#404040' foreground='#d8d8d8'> Time </span> {:%H:%M}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
 
@@ -50,14 +50,14 @@
     "format-charging": "<span size='10000' background='#404040' foreground='#d8d8d8'> Battery </span> {capacity}%",
     "format-plugged": "<span size='10000' background='#404040' foreground='#d8d8d8'> Battery </span> {capacity}%",
     "format-alt": "<span size='10000' background='#404040' foreground='#d8d8d8'> Battery </span> {time}",
-    "format-full": "<span size='10000' background='#98971a' foreground='#ebdbb2'> Battery </span> {capacity}%",
+    "format-full": "<span size='10000' background='#404040' foreground='#d8d8d8'> Battery </span> {capacity}%",
     "format-icons": ["", "", "", "", ""],
     "tooltip-format": "{time}"
   },
 
   // Internet
   "network": {
-    "format-wifi": "<span size='10000' background='#458588' foreground='#ebdbb2'> Wifi </span> {essid}",
+    "format-wifi": "<span size='10000' background='#404040' foreground='#d8d8d8'> Wifi </span> {essid}",
     "format-ethernet": "<span size='10000' foreground='#f5e0dc'>󰤭  </span> Disconnected",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "<span size='10000' foreground='#f5e0dc'>  </span>Disconnected",
@@ -67,7 +67,7 @@
   // Audio
   "pulseaudio": {
     "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-    "format": "<span size='10000' background='#d79921' foreground='#ebdbb2'> Volume </span> {volume}%",
+    "format": "<span size='10000' background='#404040' foreground='#d8d8d8'> Volume </span> {volume}%",
     "format-muted": "<span size='10000' background='#404040' foreground='#d8d8d8'> Volume </span> Muted",
     "format-icons": {
       "headphone": "",
