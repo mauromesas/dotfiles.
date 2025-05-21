@@ -38,7 +38,7 @@ stow .
 > [!IMPORTANT]
 > Arch packages.
 > ```bash
-> sudo pacman -S git kitty nemo wofi rofi waybar neovim zsh tmux bat eza fzf yazi btop stow
+> sudo pacman -S hyprland git kitty nemo wofi rofi waybar neovim zsh tmux bat eza fzf yazi btop stow monothemedark
 > ```
 > Aur packages.
 > ```bash
