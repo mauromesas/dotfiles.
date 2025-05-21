@@ -19,7 +19,7 @@
   </tr>
   <tr>
     <td>Launcher</td>
-    <td>Wofi</td>
+    <td>Wofi - Rofi</td>
   </tr>
   <tr>
     <td>Editor</td>
