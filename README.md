@@ -1,8 +1,14 @@
-<h2 align="center">[Minimal Dotfiles]</h2>
+<h2 align="center">[Linux Dotfiles]</h2>
+
+### Install with stow:
+```bash
+stow .
+```
+### Setup
 
 <table>
   <tr>
-    <td>Distro</td>
+    <td>OS</td>
     <td>Arch Linux</td>
   </tr>
   <tr>
@@ -28,3 +34,19 @@
   
 </table>
 
+
+> [!IMPORTANT]
+> Arch packages.
+> ```bash
+> sudo pacman -S git kitty nemo wofi rofi waybar neovim zsh tmux bat eza fzf yazi btop stow
+> ```
+> Aur packages.
+> ```bash
+> yay -S zen-browser-bin waypaper nwg-look visual-studio-code-bin
+> ```
+
+> [!TIP]
+> Install yay-aur helper.
+> ```bash
+> git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+> ```
