@@ -3,7 +3,7 @@
 // └──────────────────────────┘
 
 configuration {
-  font: "JetbrainsMono Nerd Font Medium 11";
+  font: "JetBrainsMono Nerd Font Medium 11";
 
   drun {
     display-name: "[^.^]";
